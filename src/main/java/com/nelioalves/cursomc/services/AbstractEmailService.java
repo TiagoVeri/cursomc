@@ -10,7 +10,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
-
+import org.thymeleaf.TemplateEngine;
+import org.thymeleaf.context.Context;
 
 import com.nelioalves.cursomc.domain.Cliente;
 import com.nelioalves.cursomc.domain.Pedido;
@@ -21,8 +22,8 @@ public abstract class AbstractEmailService implements EmailService {
 	@Value("${default.sender}")
 	private String sender;
 	
-//	@Autowired
-//	private TemplateEngine templateEngine;
+	@Autowired
+	private TemplateEngine templateEngine;
 	
 	@Autowired
 	private JavaMailSender javaMailSender;
@@ -44,11 +45,11 @@ public abstract class AbstractEmailService implements EmailService {
 		return sm;
 	}
 	
-//	protected String htmlFromTemplatePedido(Pedido obj) {
-//		Context context = new Context();
-//		context.setVariable("pedido", obj);
-//		return templateEngine.process("email/confirmacaoPedido", context);
-//	}
+	protected String htmlFromTemplatePedido(Pedido obj) {
+		Context context = new Context();
+		context.setVariable("pedido", obj);
+		return templateEngine.process("email/confirmacaoPedido", context);
+	}
 	
 	@Override
 	public void sendOrderConfirmationHtmlEmail(Pedido obj) {
@@ -68,7 +69,7 @@ public abstract class AbstractEmailService implements EmailService {
 		mmh.setFrom(sender);
 		mmh.setSubject("Pedido confirmado! Código: " + obj.getId());
 		mmh.setSentDate(new Date (System.currentTimeMillis()));
-		//mmh.setText(htmlFromTemplatePedido(obj), true);
+		mmh.setText(htmlFromTemplatePedido(obj), true);
 		return mimeMessage;
 	}
 	
