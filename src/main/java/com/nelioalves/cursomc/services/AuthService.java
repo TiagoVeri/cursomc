@@ -7,7 +7,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.nelioalves.cursomc.domain.Cliente;
-import com.nelioalves.cursomc.repositories.ClienteRepository;
+import com.nelioalves.cursomc.repository.ClienteRepository;
 import com.nelioalves.cursomc.services.exceptions.ObjectNotFoundException;
 
 //Serviços baseados em autentificação, "esqueci a senha" e outros

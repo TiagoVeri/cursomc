@@ -1,4 +1,4 @@
-package com.nelioalves.cursomc.repositories;
+package com.nelioalves.cursomc.repository;
 
 
 

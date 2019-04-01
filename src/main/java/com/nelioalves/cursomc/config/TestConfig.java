@@ -11,7 +11,6 @@ import com.nelioalves.cursomc.services.DBService;
 import com.nelioalves.cursomc.services.EmailService;
 import com.nelioalves.cursomc.services.MockEmailService;
 
-
 //teste de configuração do application.test
 //O test serve para dizer que as @beans da classe serão ativadas somente quando o profile de teste 
 //estiver ativo no application.properties
@@ -33,5 +32,4 @@ public class TestConfig {
 	public EmailService emailService() {
 		return new MockEmailService();
 	}
-
 }

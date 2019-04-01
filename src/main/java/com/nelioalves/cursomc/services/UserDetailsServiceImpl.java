@@ -7,7 +7,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import com.nelioalves.cursomc.domain.Cliente;
-import com.nelioalves.cursomc.repositories.ClienteRepository;
+import com.nelioalves.cursomc.repository.ClienteRepository;
 import com.nelioalves.cursomc.security.UserSS;
 
 /*

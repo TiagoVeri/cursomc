@@ -14,7 +14,7 @@ import org.springframework.web.servlet.HandlerMapping;
 
 import com.nelioalves.cursomc.domain.Cliente;
 import com.nelioalves.cursomc.dto.ClienteDTO;
-import com.nelioalves.cursomc.repositories.ClienteRepository;
+import com.nelioalves.cursomc.repository.ClienteRepository;
 import com.nelioalves.cursomc.services.exceptions.FieldMessage;
 
 public class ClienteUpdateValidator implements ConstraintValidator<ClienteUpdate, ClienteDTO> {

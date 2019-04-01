@@ -12,7 +12,6 @@ import com.nelioalves.cursomc.services.DBService;
 import com.nelioalves.cursomc.services.EmailService;
 import com.nelioalves.cursomc.services.SmtpEmailService;
 
-
 //arquivo de configuração para o profile de desenvolvimento 
 
 @Configuration
@@ -34,7 +33,7 @@ public class DevConfig {
 		dbService.instantiateTestDatabase();
 		return true;
 	}
-
+	
 	@Bean
 	public EmailService emailService() {
 		return new SmtpEmailService();
