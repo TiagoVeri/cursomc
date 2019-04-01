@@ -20,6 +20,7 @@ import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
+
 @Entity
 public class Pedido implements Serializable{
 	private static final long serialVersionUID=1L;
@@ -43,6 +44,7 @@ public class Pedido implements Serializable{
 	@OneToOne(cascade=CascadeType.ALL, mappedBy="pedido")
 	private Pagamento pagamento;
 	
+	
 	@OneToMany(mappedBy="id.pedido")
 	private Set<ItemPedido> itens= new HashSet<>();
 	
@@ -57,7 +59,6 @@ public class Pedido implements Serializable{
 		this.enderecoDeEntrega = enderecoDeEntrega;
 		this.cliente = cliente;
 	}
-
 
 	public double getValorTotal() {
 		double soma = 0.0;
@@ -117,18 +118,6 @@ public class Pedido implements Serializable{
 		this.pagamento = pagamento;
 	}
 	
-
-
-	public Endereco getEnderecoDeEntrega() {
-		return enderecoDeEntrega;
-	}
-
-
-	public void setEnderecoDeEntrega(Endereco enderecoDeEntrega) {
-		this.enderecoDeEntrega = enderecoDeEntrega;
-	}
-
-
 	public Set<ItemPedido> getItens() {
 		return itens;
 	}
@@ -165,6 +154,7 @@ public class Pedido implements Serializable{
 		return true;
 	}
 
+
 	@Override
 	public String toString() {
 		NumberFormat nf = NumberFormat.getCurrencyInstance(new Locale("pt", "BR"));
@@ -186,7 +176,6 @@ public class Pedido implements Serializable{
 		builder.append(nf.format(getValorTotal()));
 		return builder.toString();
 	}
-
 	
 	
 }

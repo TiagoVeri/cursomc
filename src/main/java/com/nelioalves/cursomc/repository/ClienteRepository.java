@@ -11,6 +11,7 @@ import com.nelioalves.cursomc.domain.Cliente;
 @Repository
 public interface ClienteRepository extends JpaRepository<Cliente, Integer> {
 
+	//função SpringData procura Clientes pelo email.
 	//Transactional faz com que não seja feito só no BD
 	@Transactional(readOnly=true)
 	Cliente findByEmail(String email);

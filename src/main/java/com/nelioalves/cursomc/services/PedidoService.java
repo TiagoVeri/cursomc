@@ -21,6 +21,7 @@ import com.nelioalves.cursomc.repository.ProdutoRepository;
 import com.nelioalves.cursomc.security.UserSS;
 import com.nelioalves.cursomc.services.exceptions.AuthorizationException;
 import com.nelioalves.cursomc.services.exceptions.ObjectNotFoundException;
+
 @Service
 public class PedidoService {
 	
@@ -55,7 +56,6 @@ public class PedidoService {
 				"Objeto não encontrado - Id: " + id + ", Tipo: " + Pedido.class.getName()));
 				
 	}
-	
 
 	public Pedido insert(Pedido obj) {
 		obj.setId(null);

@@ -49,10 +49,12 @@ public class Cliente implements Serializable{
 	@CollectionTable(name="PERFIS")
 	private Set<Integer> perfis = new HashSet<>();
 	
+		
 	@JsonIgnore
 	@OneToMany(mappedBy="cliente")
 	private List<Pedido> pedidos = new ArrayList<>();
-		
+	
+	
 	public Cliente() {
 		addPerfil(Perfil.CLIENTE);
 	}
@@ -107,7 +109,14 @@ public class Cliente implements Serializable{
 		this.tipo = tipo.getCod();
 	}
 	
-
+	//retornar os perfis correspondentes aos clientes.
+	public Set<Perfil> getPerfis(){
+		return perfis.stream().map(x -> Perfil.toEnum(x)).collect(Collectors.toSet());
+	}
+	
+	public void addPerfil(Perfil perfil) {
+		perfis.add(perfil.getCod());
+	}
 	public List<Endereco> getEnderecos() {
 		return enderecos;
 	}
@@ -127,6 +136,16 @@ public class Cliente implements Serializable{
 	}
 	
 	
+	public List<Pedido> getPedidos() {
+		return pedidos;
+	}
+
+	public void setPedidos(List<Pedido> pedidos) {
+		this.pedidos = pedidos;
+	}
+
+	
+	
 	public String getSenha() {
 		return senha;
 	}
@@ -136,23 +155,6 @@ public class Cliente implements Serializable{
 	}
 	
 	
-
-	public List<Pedido> getPedidos() {
-		return pedidos;
-	}
-
-	public void setPedidos(List<Pedido> pedidos) {
-		this.pedidos = pedidos;
-	}
-	
-	//retornar os perfis correspondentes aos clientes.
-	public Set<Perfil> getPerfis(){
-		return perfis.stream().map(x -> Perfil.toEnum(x)).collect(Collectors.toSet());
-	}
-	
-	public void addPerfil(Perfil perfil) {
-		perfis.add(perfil.getCod());
-	}
 
 	@Override
 	public int hashCode() {

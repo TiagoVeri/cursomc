@@ -35,7 +35,6 @@ public class CategoriaService {
 		return repo.save(obj);
 	}
 	
-	
 	//método feito para salvar apenas as informações que queremos
 	//uma forma de manter um determinado dado e alterar outro, sempre com base na regra de negócios
 	public Categoria update(Categoria obj) {
@@ -70,4 +69,5 @@ public class CategoriaService {
 	private void updateData(Categoria newObj, Categoria obj){
 		newObj.setNome(obj.getNome());
 	}
+	
 }

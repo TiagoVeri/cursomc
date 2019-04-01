@@ -70,9 +70,6 @@ public class DBService {
 	@Autowired
 	private BCryptPasswordEncoder pe;
 	
-//	@Autowired
-//	private BCryptPasswordEncoder pe;
-	
 	public void instantiateTestDatabase() throws ParseException {
 		
 		Categoria cat1 = new Categoria(null, "Informática");

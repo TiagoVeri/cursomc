@@ -58,7 +58,6 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 		
 	}
 	
-	
 	@Override
 	protected void successfulAuthentication(HttpServletRequest req,
 											HttpServletResponse res,
@@ -68,8 +67,6 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 		String username = ((UserSS) auth.getPrincipal()).getUsername();
 		String token = jwtUtil.generateToken(username);
 		res.addHeader("Authorization", "Bearer " + token);
-
-		//Verifica e passa na verificação cors
 		res.addHeader("access-control-expose-headers", "Authorization");
 	}
 	

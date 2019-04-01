@@ -23,17 +23,17 @@ import com.nelioalves.cursomc.dto.CategoriaDTO;
 import com.nelioalves.cursomc.services.CategoriaService;
 
 @RestController
-@RequestMapping(value="/categorias")
+@RequestMapping(value = "/categorias")
 public class CategoriaResource {
-		
+	
 	@Autowired
 	private CategoriaService service;
+	
 	
 	@RequestMapping(value="/{id}", method=RequestMethod.GET)
 	public ResponseEntity<Categoria> find(@PathVariable Integer id){
 		Categoria obj = service.find(id);
 		return ResponseEntity.ok().body(obj);
-	
 	}
 	
 	@PreAuthorize("hasAnyRole('ROLE_ADMIN')")
